@@ -1,7 +1,5 @@
-from ast import arg
 from alive_progress import alive_it, alive_bar
 import secrets
-from matplotlib.pyplot import title
 from pyfiglet import Figlet
 import os
 import multiprocessing
@@ -54,12 +52,10 @@ def main():
     if each == processCount - 1:
         processSize.append(int(sampleSize - sum(processSize)))
 
-
     pool = multiprocessing.Pool()
     stdResults = pool.map(stdRand, processSize)
     secretResults = pool.map(secretRand, processSize)
     pool.close()
-
 
     combinedStdResults = []
     for each in alive_it(stdResults):
@@ -74,14 +70,13 @@ def main():
     listCombinedStdResults = [combinedStdResults]
     listCombinedSecretResults = [combinedSecretResults]
 
-
     saveToFile = input("Save to file? (Y/n): ").casefold
     if (
         saveToFile == "".casefold
         or saveToFile == "Y".casefold
         or saveToFile == "Yes".casefold
     ):
-        
+
         with alive_bar(2, title="Exporting to file") as bar:
 
             e1 = multiprocessing.Process(
