@@ -122,3 +122,15 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Image files
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.raw
+
+# CSV
+*.csv
+*.xlsx
